@@ -1,3 +1,4 @@
+from services.config import MessageTags
 import random
 import string
 
@@ -27,5 +28,6 @@ for i in range(n):
         recipient_id = random.randint(0, len(users) - 1)
         recipient = users[recipient_id]
         message = ''.join(random.choice(letters) for i in range(8))
-        print("User " + current_user.username + " sends message " + message + " to user " + recipient.username)
-        current_user.send_message(message, recipient.username)
+        tag = random.choice(list(MessageTags)).value
+        print("User", current_user.username, "sends message", message, "with tag", tag, "to user" + recipient.username)
+        current_user.send_message(message, recipient.username, tag)

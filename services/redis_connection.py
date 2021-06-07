@@ -12,4 +12,3 @@ def connect():
         connection.ping()
     except Exception as err:
         sys.exit(err)
-    
